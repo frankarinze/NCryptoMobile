@@ -16,7 +16,7 @@ export default {
     brandSecondary:"#6B577F",
     brandSecondary60:"#5B4A6D",
     brandPrimary60: 'rgba(108, 99, 255, 0.6)',
-    inputText: '#A8A8A8',
+    inputText: '#A9A9A9',
     forgotBlack: '#202020',
     Black: '#385C8E',
     blue: '#0197f6',

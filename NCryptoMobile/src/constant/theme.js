@@ -45,17 +45,18 @@ export default {
   },
   // Authentication Form
   authInputText: {
-    height: 48,
+    height: 52,
     width: '100%',
     // marginLeft: 16,
     // marginRight: 16,
 
-    borderWidth: 1.5,
-    borderRadius: 3,
+    // borderWidth: 1.5,
+    borderRadius: 5,
     paddingHorizontal: 12,
     paddingTop: 0,
+    backgroundColor:colors.white,
     color: colors.inputText,
-    borderColor: colors.inputGrey,
+    // borderColor: colors.inputGrey,
     fontSize: 16,
     lineHeight: 20,
     shadowOffset: { width: 0, height: 1 },

@@ -77,11 +77,11 @@ class Signin extends Component {
 
                         <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
 
-                            <Text style={[{ marginRight: 8 },theme.p]}>Don't have an Account ?</Text>
+                            <Text style={[{ marginRight: 8,color:colors.white },theme.p]}>Don't have an Account ?</Text>
                             <TouchableOpacity
                              onPress={() => this.props.navigation.navigate("PartialSignup")}
                             >
-                                <Text style={[{ color: colors.brandPrimary },theme.p]}>Sign Up</Text>
+                                <Text style={[{ color: colors.brandPrimary },theme.p]}>Register</Text>
                             </TouchableOpacity>
 
                         </View>
