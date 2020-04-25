@@ -137,7 +137,7 @@ const Nav = () => {
 
 
       {/* Other stacks */}
-      <Stack.Navigator initialRouteName="Splashscreen" >
+      <Stack.Navigator initialRouteName="Home" >
         <Stack.Screen
           name="Home"
           component={Home}
@@ -153,17 +153,18 @@ const Nav = () => {
                 style={{
                   flexDirection: "row",
                   flex: 2,
-                  justifyContent: "center",
+                  marginHorizontal:20,
+                  // justifyContent: "center",
                   paddingRight: 20
                 }}
               >
                 <Text
                   style={[
-                    theme.h4,
+                    theme.p,
                     { textAlign: "left", color: colors.black50 }
                   ]}
                 >
-                  Home
+                  Hi,Toyosi
                       </Text>
 
 
