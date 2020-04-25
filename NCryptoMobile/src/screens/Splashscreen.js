@@ -5,7 +5,8 @@ import {
   StyleSheet,
   ScrollView,
   TouchableOpacity,
-  Image
+  Image,
+  ImageBackground
 } from "react-native";
 
 import { colors, theme } from "../constant";
@@ -15,6 +16,7 @@ import Modal from "react-native-modal";
 import { SelectButton, Input, AppButton ,Header} from "../components";
 import { Field, reduxForm } from "redux-form";
 
+const layoutBg = require('../assets/images/bg.png');
 const Splashscreen = ({ navigation }) => {
 
 
@@ -32,48 +34,47 @@ const Splashscreen = ({ navigation }) => {
 
 
   return (
-    <ScrollView
-      style={{ backgroundColor: colors.offWhite }}
-      contentContainerStyle={styles.container} >
-      <View style={[{ flex: 1, }, theme.gContainer]}>
-        <Text style={[theme.h2, { marginTop: 20 }]}>Splashscreen</Text>
+    <View style={styles.container}>
+        <ImageBackground source={layoutBg} style={styles.image}>
+        <View style={{ flex: 1, marginBottom: 50, marginTop: "50%", marginHorizontal: 18 }}>
+         <View style={theme.imageContainer}>
+          <Image
+            source={require('../assets/logo.png')}
+            fadeDuration={0}
+            style={{ width: 180, height: 70, }}
+          />
+        </View>
+        <Text style={[theme.h2, { marginTop: 20,color:colors.white }]}>Splashscreen</Text>
        
         <View style={{ height: 78 }}>
 
           <AppButton
-            text="Next"
+            text="Sign In"
             styles={theme}
           />
 
         </View>
-      </View>
-      <View>
+        </View>
+        </ImageBackground>
+        </View>
 
-      </View>
-    </ScrollView>
+   
+    
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // padding: 10,
-    backgroundColor: colors.white
-  },
-  SelectItem: {
-    flexDirection: "row",
-    paddingVertical: 18,
-    paddingHorizontal: 10,
-    alignItems: "center",
-    backgroundColor: colors.white,
-    borderRadius: 3,
-    borderColor: colors.selectGrey,
-    borderWidth: 1,
-    // shadow
-    shadowOpacity: 0.06,
-    elevation: 1,
-    shadowOffset: { width: 0, height: 0.5 },
-    marginVertical: 5
-  }
+    backgroundColor: '#fff',
+    // alignItems: 'center',
+    justifyContent: 'center',
+    fontSize: 50
+},
+  image: {
+    flex: 1,
+    resizeMode: "cover",
+    justifyContent: "center"
+},
 });
 export default Splashscreen;
