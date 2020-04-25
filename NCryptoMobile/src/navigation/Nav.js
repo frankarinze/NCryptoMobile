@@ -14,7 +14,6 @@ import { enableScreens } from 'react-native-screens';
 import { MaterialCommunityIcons, Entypo, Feather } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
 const Tab = createMaterialTopTabNavigator();
 
 
@@ -152,9 +151,9 @@ const Nav = () => {
               <View
                 style={{
                   flexDirection: "row",
-                  flex: 2,
+                  flex: 1,
                   marginHorizontal:20,
-                  // justifyContent: "center",
+                  justifyContent:'space-between',
                   paddingRight: 20
                 }}
               >
@@ -166,6 +165,7 @@ const Nav = () => {
                 >
                   Hi,Toyosi
                       </Text>
+                      <Entypo name="bell" color={colors.black} size={24} />
 
 
               </View>
