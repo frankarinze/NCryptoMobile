@@ -54,8 +54,8 @@ const Nav = () => {
     //         headerStyle: { backgroundColor: colors.white },
     //         title: "",
     //         headerBackTitle: "",
-          
-       
+
+
     //         headerRight: () => (
     //           <View
     //             style={{
@@ -74,12 +74,12 @@ const Nav = () => {
     //               Home
     //                   </Text>
 
-                     
+
     //           </View>
     //         )
     //       }}
     //     />
-      
+
     //     <Stack.Screen
     //       name='Signin'
     //       component={Signin}
@@ -87,7 +87,7 @@ const Nav = () => {
     //         headerShown: false
     //       }}
     //     />
-       
+
     //   </Stack.Navigator>
     //   <Tab.Navigator
     //   initialRouteName="Feed"
@@ -109,13 +109,13 @@ const Nav = () => {
     //   />
     // </Tab.Navigator>
     // </NavigationContainer>
-  
+
     <NavigationContainer>
-    
-    <Tab.Navigator
+
+      {/* <Tab.Navigator
     initialRouteName="Signin"
     tabBarOptions={{
-      activeTintColor: '#e91e63',
+      activeTintColor:colors.black,
       labelStyle: { fontSize: 12},
       style: { backgroundColor: 'powderblue',height:300 ,justifyContent:'center',flexDirection:'column'},
    
@@ -131,8 +131,55 @@ const Nav = () => {
       component={Register}
       options={{ tabBarLabel: 'Register' }}
     />
-  </Tab.Navigator>
-  </NavigationContainer>
+  </Tab.Navigator> */}
+
+
+      {/* Other stacks */}
+      <Stack.Navigator >
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{
+            headerTintColor: "white",
+            headerStyle: { backgroundColor: colors.white },
+            title: "",
+            headerBackTitle: "",
+
+
+            headerRight: () => (
+              <View
+                style={{
+                  flexDirection: "row",
+                  flex: 2,
+                  justifyContent: "center",
+                  paddingRight: 20
+                }}
+              >
+                <Text
+                  style={[
+                    theme.h4,
+                    { textAlign: "left", color: colors.black50 }
+                  ]}
+                >
+                  Home
+                      </Text>
+
+
+              </View>
+            )
+          }}
+        />
+
+        <Stack.Screen
+          name='Signin'
+          component={Signin}
+          options={{
+            headerShown: false
+          }}
+        />
+
+      </Stack.Navigator>
+    </NavigationContainer>
 
   );
 }

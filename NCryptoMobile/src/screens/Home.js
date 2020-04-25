@@ -40,13 +40,13 @@ const Home = ({ navigation }) => {
       style={{ backgroundColor: colors.offWhite }}
       contentContainerStyle={styles.container} >
       <View style={[{ flex: 1, }, theme.gContainer]}>
-        <View style={styles.imageContainer}>
+        {/* <View style={styles.imageContainer}>
           <Image
             source={require('../assets/logo.png')}
             fadeDuration={0}
             style={{ width: 65, height: 70, }}
           />
-        </View>
+        </View> */}
         <Text style={[theme.h2, { marginTop: 20 }]}>What would you like to do today ?</Text>
         <View style={{ marginTop: 20 }}>
           {items.map((item, index) => {

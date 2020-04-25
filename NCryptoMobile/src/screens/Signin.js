@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text,ImageBackground, View, Image, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, ImageBackground, View, Image, TouchableOpacity } from 'react-native';
 import { AppButton, AppTextInput } from '../components'
 import { colors, theme } from '../constant'
 import { connect } from "react-redux";
@@ -24,7 +24,7 @@ let SigninForm = ({
 }) => {
     return (
         <>
-            <View style={{ height: 170 }}>
+            <View style={{ height: 230 }}>
                 <Field
                     name="email"
                     // label="Email Address"
@@ -44,6 +44,8 @@ let SigninForm = ({
                     prefix_icon="md-clipboard"
                     keyboardType
                 />
+                <Text style={[{ marginRight: 8, color: colors.white,textAlign:'right' }, theme.p]}>Forgot password ?</Text>
+
 
             </View>
             <View style={{ height: 75 }}>
@@ -67,27 +69,27 @@ class Signin extends Component {
 
         return <>
             <View style={styles.container}>
-            <ImageBackground source={layoutBg} style={styles.image}>
-                <View style={{ flex: 1, marginBottom: 50, marginTop: 10, marginHorizontal: 18}}>
+                <ImageBackground source={layoutBg} style={styles.image}>
+                    <View style={{ flex: 1, marginBottom: 50, marginTop: 10, marginHorizontal: 18 }}>
 
-                    <View style={{ flex: 1, justifyContent: 'center' }}>
-    
-                        <SigninForm />
+                        <View style={{ flex: 1, justifyContent: 'center' }}>
+
+                            <SigninForm />
 
 
-                        <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
+                            <View style={{ flexDirection: 'row', justifyContent: 'center' }}>
 
-                            <Text style={[{ marginRight: 8,color:colors.white },theme.p]}>Don't have an Account ?</Text>
-                            <TouchableOpacity
-                             onPress={() => this.props.navigation.navigate("PartialSignup")}
-                            >
-                                <Text style={[{ color: colors.brandPrimary },theme.p]}>Register</Text>
-                            </TouchableOpacity>
+                                <Text style={[{ marginRight: 8, color: colors.white }, theme.p]}>Don't have an Account ?</Text>
+                                <TouchableOpacity
+                                    onPress={() => this.props.navigation.navigate("PartialSignup")}
+                                >
+                                    <Text style={[{ color: colors.brandPrimary }, theme.p]}>Register</Text>
+                                </TouchableOpacity>
 
+                            </View>
                         </View>
-                    </View>
 
-                </View>
+                    </View>
                 </ImageBackground>
             </View>
         </>
@@ -122,5 +124,5 @@ const styles = StyleSheet.create({
         flex: 1,
         resizeMode: "cover",
         justifyContent: "center"
-      },
+    },
 });
