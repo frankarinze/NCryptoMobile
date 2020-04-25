@@ -22,6 +22,8 @@ const Tab = createMaterialTopTabNavigator();
 import Home from '../screens/Home'
 import Signin from '../screens/Signin'
 import Register from '../screens/Register'
+import Splashscreen from '../screens/Splashscreen'
+
 
 
 enableScreens();
@@ -135,7 +137,7 @@ const Nav = () => {
 
 
       {/* Other stacks */}
-      <Stack.Navigator >
+      <Stack.Navigator initialRouteName="Splashscreen" >
         <Stack.Screen
           name="Home"
           component={Home}
@@ -171,8 +173,8 @@ const Nav = () => {
         />
 
         <Stack.Screen
-          name='Signin'
-          component={Signin}
+          name='Splashscreen'
+          component={Splashscreen}
           options={{
             headerShown: false
           }}
