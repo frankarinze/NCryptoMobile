@@ -13,11 +13,16 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { enableScreens } from 'react-native-screens';
 import { MaterialCommunityIcons, Entypo, Feather } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+const Tab = createMaterialTopTabNavigator();
 
 
 
 import Home from '../screens/Home'
 import Signin from '../screens/Signin'
+import Register from '../screens/Register'
+
 
 enableScreens();
 
@@ -39,52 +44,96 @@ const Stack = createNativeStackNavigator()
 
 const Nav = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName='Signin'>
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            headerTintColor: "white",
-            headerStyle: { backgroundColor: colors.white },
-            title: "",
-            headerBackTitle: "",
+    // <NavigationContainer>
+    //   <Stack.Navigator >
+    //     <Stack.Screen
+    //       name="Home"
+    //       component={Home}
+    //       options={{
+    //         headerTintColor: "white",
+    //         headerStyle: { backgroundColor: colors.white },
+    //         title: "",
+    //         headerBackTitle: "",
           
        
-            headerRight: () => (
-              <View
-                style={{
-                  flexDirection: "row",
-                  flex: 2,
-                  justifyContent: "center",
-                  paddingRight: 20
-                }}
-              >
-                <Text
-                  style={[
-                    theme.h4,
-                    { textAlign: "left", color: colors.black50 }
-                  ]}
-                >
-                  Home
-                      </Text>
+    //         headerRight: () => (
+    //           <View
+    //             style={{
+    //               flexDirection: "row",
+    //               flex: 2,
+    //               justifyContent: "center",
+    //               paddingRight: 20
+    //             }}
+    //           >
+    //             <Text
+    //               style={[
+    //                 theme.h4,
+    //                 { textAlign: "left", color: colors.black50 }
+    //               ]}
+    //             >
+    //               Home
+    //                   </Text>
 
                      
-              </View>
-            )
-          }}
-        />
+    //           </View>
+    //         )
+    //       }}
+    //     />
       
-        <Stack.Screen
-          name='Signin'
-          component={Signin}
-          options={{
-            headerShown: false
-          }}
-        />
+    //     <Stack.Screen
+    //       name='Signin'
+    //       component={Signin}
+    //       options={{
+    //         headerShown: false
+    //       }}
+    //     />
        
-      </Stack.Navigator>
-    </NavigationContainer>
+    //   </Stack.Navigator>
+    //   <Tab.Navigator
+    //   initialRouteName="Feed"
+    //   tabBarOptions={{
+    //     activeTintColor: '#e91e63',
+    //     labelStyle: { fontSize: 12 },
+    //     style: { backgroundColor: 'powderblue' },
+    //   }}
+    // >
+    //   <Tab.Screen
+    //     name="Feed"
+    //     component={Feed}
+    //     options={{ tabBarLabel: 'Home' }}
+    //   />
+    //   <Tab.Screen
+    //     name="Notifications"
+    //     component={Notifications}
+    //     options={{ tabBarLabel: 'Updates' }}
+    //   />
+    // </Tab.Navigator>
+    // </NavigationContainer>
+  
+    <NavigationContainer>
+    
+    <Tab.Navigator
+    initialRouteName="Signin"
+    tabBarOptions={{
+      activeTintColor: '#e91e63',
+      labelStyle: { fontSize: 12},
+      style: { backgroundColor: 'powderblue',height:300 ,justifyContent:'center',flexDirection:'column'},
+   
+    }}
+  >
+    <Tab.Screen
+      name="Signin"
+      component={Signin}
+      options={{ tabBarLabel: 'Sign in' }}
+    />
+    <Tab.Screen
+      name="Register"
+      component={Register}
+      options={{ tabBarLabel: 'Register' }}
+    />
+  </Tab.Navigator>
+  </NavigationContainer>
+
   );
 }
 export default Nav;
