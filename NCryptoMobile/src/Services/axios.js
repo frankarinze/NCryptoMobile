@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { store } from '../../App';
 // import store from '../../store'
-import NavigationService from '../../navigator'
+// import NavigationService from '../../navigator'
 
 
 function logout() {

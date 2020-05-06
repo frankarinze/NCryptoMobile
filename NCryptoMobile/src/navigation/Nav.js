@@ -14,16 +14,14 @@ import { enableScreens } from 'react-native-screens';
 import { MaterialCommunityIcons, Entypo, Feather } from "@expo/vector-icons";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-const Tab = createMaterialTopTabNavigator();
-
-
+import { useSelector } from "react-redux";
 
 import Home from '../screens/Home'
 import Signin from '../screens/Signin'
 import Register from '../screens/Register'
 import Splashscreen from '../screens/Splashscreen'
 
-
+const Tab = createMaterialTopTabNavigator();
 
 enableScreens();
 
@@ -44,76 +42,10 @@ enableScreens();
 const Stack = createNativeStackNavigator()
 
 const Nav = () => {
-  return (
-    // <NavigationContainer>
-    //   <Stack.Navigator >
-    //     <Stack.Screen
-    //       name="Home"
-    //       component={Home}
-    //       options={{
-    //         headerTintColor: "white",
-    //         headerStyle: { backgroundColor: colors.white },
-    //         title: "",
-    //         headerBackTitle: "",
-
-
-    //         headerRight: () => (
-    //           <View
-    //             style={{
-    //               flexDirection: "row",
-    //               flex: 2,
-    //               justifyContent: "center",
-    //               paddingRight: 20
-    //             }}
-    //           >
-    //             <Text
-    //               style={[
-    //                 theme.h4,
-    //                 { textAlign: "left", color: colors.black50 }
-    //               ]}
-    //             >
-    //               Home
-    //                   </Text>
-
-
-    //           </View>
-    //         )
-    //       }}
-    //     />
-
-    //     <Stack.Screen
-    //       name='Signin'
-    //       component={Signin}
-    //       options={{
-    //         headerShown: false
-    //       }}
-    //     />
-
-    //   </Stack.Navigator>
-    //   <Tab.Navigator
-    //   initialRouteName="Feed"
-    //   tabBarOptions={{
-    //     activeTintColor: '#e91e63',
-    //     labelStyle: { fontSize: 12 },
-    //     style: { backgroundColor: 'powderblue' },
-    //   }}
-    // >
-    //   <Tab.Screen
-    //     name="Feed"
-    //     component={Feed}
-    //     options={{ tabBarLabel: 'Home' }}
-    //   />
-    //   <Tab.Screen
-    //     name="Notifications"
-    //     component={Notifications}
-    //     options={{ tabBarLabel: 'Updates' }}
-    //   />
-    // </Tab.Navigator>
-    // </NavigationContainer>
-
-    <NavigationContainer>
-
-      {/* <Tab.Navigator
+  const auth = useSelector(state => state.auth);
+  return auth.access_token === null ? (
+      <NavigationContainer>
+       <Tab.Navigator
     initialRouteName="Signin"
     tabBarOptions={{
       activeTintColor:colors.black,
@@ -132,10 +64,16 @@ const Nav = () => {
       component={Register}
       options={{ tabBarLabel: 'Register' }}
     />
-  </Tab.Navigator> */}
+  </Tab.Navigator>
+    </NavigationContainer>
+  ) : (
+    <NavigationContainer>
+
+     
 
 
       {/* Other stacks */}
+    
       <Stack.Navigator initialRouteName="Home" >
         <Stack.Screen
           name="Home"

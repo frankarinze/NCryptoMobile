@@ -8,14 +8,14 @@ class AppButton extends Component {
 
   state = { isFocused: false, error: "", help: "", isSecure: false, blankText: this.props.placeholder };
   render() {
-    const { text, instruction, styles } = this.props
+    const { text, instruction, isLoading,styles } = this.props
     const icon_size = 0.5 * styles.container.height;
     return (
       <View style={theme.button}>
         <TouchableOpacity
-          onPress={() => {
-            if (instruction) instruction()
-          }}
+        onPress={() => {
+          if (instruction && !isLoading) instruction()
+        }}
           style={{ color: "white", textAlign: "center", fontSize: 0.7 * icon_size, justifyContent: 'center', flex: 1 }}
           color='white'
         >

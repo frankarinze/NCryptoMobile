@@ -8,12 +8,20 @@ import { createEpicMiddleware } from 'redux-observable'
 const epicMiddleware = createEpicMiddleware();
 const composeEhnancers = window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
 
+// const store = createStore(
+//   RootReducer,
+//     composeEhnancers(
+//       applyMiddleware(thunk, epicMiddleware),
+//       autoRehydrate(),
+//     ),
+//   )
+
 const store = createStore(
-    createAccountFormReducer,
-    composeEhnancers(
-      applyMiddleware(thunk, epicMiddleware),
-      autoRehydrate(),
-    ),
+  RootReducer,
+  composeEhnancers(applyMiddleware(thunk))
   )
+
+
+
 export default store;
 

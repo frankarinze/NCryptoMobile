@@ -9,8 +9,8 @@ import { Provider, connect, bin } from 'react-redux'
 import { createEpicMiddleware } from 'redux-observable'
 // import store from './store'
 import { persistStore, autoRehydrate } from 'redux-persist'
-import createAccountFormReducer from './src/reducers/createAccountForm.reducer'
 import thunk from 'redux-thunk';
+
 import RootReducer from './src/reducers/index'
 import { SetCustomText } from "./src/components";
 
@@ -19,7 +19,6 @@ import { SetCustomText } from "./src/components";
 // const rootReducer = (state = {}, action) => {
 //   return state
 // }
-const store = createStore(RootReducer)
 const customTextProps = {
   style: {
     fontSize: 46,
@@ -27,6 +26,19 @@ const customTextProps = {
     // color: 'blue'
   }
 };
+
+// Navigator =withNavigation(Navigator)
+const epicMiddleware = createEpicMiddleware();
+const composeEhnancers = window.__REDUX_DEVTOOLS_EXTENSION__ || compose;
+
+const store = createStore(
+  RootReducer,
+  composeEhnancers(
+    applyMiddleware(thunk, epicMiddleware),
+    autoRehydrate(),
+  ),
+)
+// epicMiddleware.run(RootReducer);
 
 class App extends Component {
   constructor() {
